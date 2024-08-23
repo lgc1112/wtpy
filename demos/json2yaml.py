@@ -1,3 +1,4 @@
+import codecs
 import os
 import yaml
 import json
@@ -32,7 +33,23 @@ def scan_folder(folder:str):
         
         fpath = os.path.join(folder, fname)
         print(fpath)
+        # convert_gbk_to_utf8(fpath, fpath)
         json_to_yaml(fpath)
+
+
+# def convert_gbk_to_utf8(input_file, output_file):
+#     try:
+#         with codecs.open(input_file, 'r', 'gbk') as f:
+#             content = f.read()
+#
+#         # 将读取的内容以UTF-8编码写入新文件
+#         with codecs.open(output_file, 'w', 'utf-8') as f:
+#             f.write(content)
+#
+#         print(f"文件 {input_file} 已成功转换为UTF-8编码并保存为 {output_file}")
+#
+#     except UnicodeDecodeError as e:
+#         print(f"无法将文件 {input_file} 转换为UTF-8编码: {e}")
 
 if __name__ == "__main__":
     folder = "./"
